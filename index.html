@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Feliz San Valentín!</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffe6f2; /* tono rosa */
+        color: #333; /* color de texto */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    #countdown {
+        font-size: 1.5em;
+    }
+</style>
+</head>
+<body>
+<h1>¿Qué esperabas eh, Katusita?</h1>
+<div id="countdown"></div>
+
+<script>
+    // Fecha del próximo 14 de febrero de 2024
+    const fechaSanValentin = new Date('2024-02-14T00:00:00');
+    // Actualizar la cuenta atrás cada segundo
+    const actualizarCuentaAtras = () => {
+        const ahora = new Date().getTime();
+        const diferencia = fechaSanValentin - ahora;
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML = `Faltan: ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos.`;
+
+        // Cuando llega a la fecha, mostrar mensaje especial
+        if (diferencia <= 0) {
+            document.getElementById('countdown').innerHTML = '¡Feliz San Valentín, Katusita!';
+        }
+    }
+
+    // Llamar a la función por primera vez
+    actualizarCuentaAtras();
+    // Actualizar cada segundo
+    setInterval(actualizarCuentaAtras, 1000);
+</script>
+</body>
+</html>
