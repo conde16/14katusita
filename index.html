@@ -26,22 +26,31 @@
         font-size: 1.5em;
         text-align: center;
     }
-
-    /* Estilos para hacer la página responsive */
-    @media only screen and (max-width: 600px) {
-        h1 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        #countdown {
-            font-size: 1em;
-        }
+    .frame {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #333; /* color del marco */
+        border-radius: 10px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .frame img {
+        max-width: 100%;
+        max-height: 100%;
     }
 </style>
 </head>
 <body>
 <h1>¿Qué esperabas eh, Katusita?</h1>
 <div id="countdown"></div>
+<div class="frame">
+    <!-- Aquí puedes agregar la etiqueta img con la URL de tu foto -->
+    <img src="C:\Users\jesus\Desktop\GS ASIR 2023-24\cap.png" alt="Foto para San Valentín">
+</div>
+<p>Esta noche tienes una cena en este lugar. Adivina dónde. Si no lo adivinas, lo descubrirás a las 22:15.</p>
 
 <script>
     // Fecha del próximo 14 de febrero de 2024
